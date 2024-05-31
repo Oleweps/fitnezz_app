@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Social Connections - Fitnezz{% endblock %}
+
+{% block content %}
+<div class="sociol-container">
+    <h1 class="sociol-title">Social Connections</h1>
+    <form class="sociol-form" method="POST" action="{{ url_for('feature.manage_social') }}">
+        <div class="form-group">
+            <label for="friend_id" class="form-label">Friend ID:</label>
+            <input type="number" id="friend_id" name="friend_id" class="form-input" required>
+        </div>
+        <button type="submit" class="form-button">Add Connection</button>
+    </form>
+
+    <h2 class="sociol-subtitle">Existing Social Connections</h2>
+    <ul class="sociol-list">
+        {% for connection in social_connections %}
+            <li class="social-item">
+                {% if connection.user_id == current_user.id %}
+                    Friend ID: {{ connection.friend_id }}, Status: {{ connection.status }}
+                {% else %}
+                    Friend ID: {{ connection.user_id }}, Status: {{ connection.status }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2 class="sociol-subtitle">Pending Friend Requests</h2>
+    <ul class="sociol-list">
+        {% for request in friend_requests %}
+            <li class="sociol-item">
+                User ID: {{ request.user_id }}
+                <form method="POST" action="{{ url_for('feature.accept_request', request_id=request.id) }}">
+                    <button type="submit" class="form-button accept-button">Accept</button>
+                </form>
+                <form method="POST" action="{{ url_for('feature.decline_request', request_id=request.id) }}">
+                    <button type="submit" class="form-button decline-button">Decline</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

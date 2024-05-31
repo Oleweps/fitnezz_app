@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- feature section starts -->
+<section class="feature" id="feature">
+  <h1 class="heading">featured <span>classes</span></h1>
+  <div class="swiper feature-slider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide box">
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/featured/featured-1.jpg') }}" alt="Body Sculpt Fusion">
+        </div>
+        <div class="content">
+          <div class="price">kes2500.00</div>
+          <h3>Body Sculpt Fusion</h3>
+        </div>
+      </div>
+
+      <div class="swiper-slide box">
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/featured/featured-2.jpg') }}" alt="Cardio Power Hour">
+        </div>
+        <div class="content">
+          <div class="price">kes2500.00</div>
+          <h3>Cardio Power Hour</h3>
+        </div>
+      </div>
+
+      <div class="swiper-slide box">
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/featured/featured-3.jpg') }}" alt="HIIT Revolution">
+        </div>
+        <div class="content">
+          <div class="price">kes2500.00</div>
+          <h3>HIIT Revolution</h3>
+        </div>
+      </div>
+
+      <div class="swiper-slide box">
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/older_posts/older_posts_2.jpg') }}" alt="Zen Yoga Flow">
+        </div>
+        <div class="content">
+          <div class="price">kes2500.00</div>
+          <h3>Zen Yoga Flow</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- feature section ends -->
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Nutrition Tracker{% endblock %}
+
+{% block content %}
+<div class="nutrition-container">
+    <h1>Track Your Nutrition</h1>
+    <form method="POST" action="{{ url_for('api.track_nutrition') }}">
+        <label for="food_item">Enter Food Item:</label>
+        <input type="text" id="food_item" name="food_item" required>
+        <button type="submit">Get Nutrition Info</button>
+    </form>
+
+    {% if nutrition_data %}
+        <div class="nutrition-info">
+            <h2>Nutrition Information</h2>
+            <ul>
+                {% for item in nutrition_data['foods'] %}
+                    <li>
+                        <strong>{{ item['food_name'] }}</strong><br>
+                        Calories: {{ item['nf_calories'] }}<br>
+                        Protein: {{ item['nf_protein'] }}g<br>
+                        Carbs: {{ item['nf_total_carbohydrate'] }}g<br>
+                        Fats: {{ item['nf_total_fat'] }}g
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+</div>
+
+
+{% endblock %}

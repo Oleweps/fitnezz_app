@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Fitnezz @/Dantes.Oleweps{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+</head>
+<body>
+    <!--header section starts-->
+    <header class="header">
+        <a href="{{ url_for('main.index') }}" class="logo">fit<span>nezz</span></a>
+        <nav class="navbar">
+            <a href="{{ url_for('main.index') }}#home">home</a>
+            <a href="{{ url_for('main.about') }}#feature">about</a>
+            <a href="{{ url_for('main.services') }}#schedule">services</a>
+            <a href="{{ url_for('main.news') }}#blog">news</a>
+            <a href="{{ url_for('main.index') }}#footer">contact</a>
+        </nav>
+        <div class="icons">
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('main.profile') }}" class="btn">Profile</a>
+                <a href="{{ url_for('main.logout') }}" class="btn">Logout</a>
+            {% else %}
+                <a href="{{ url_for('main.signup') }}" class="btn">Become a Member</a>
+                <a href="{{ url_for('main.login') }}" class="btn">Login</a>
+            {% endif %}
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </div>
+    </header>
+    <!--header section ends-->
+    
+    {% block content %}{% endblock %}
+    
+    <!--footer section starts-->
+    <section class="footer" id="footer">
+        <div class="box-container">
+            <div class="box">
+                <h1>About</h1>
+                <div class="text">
+                    <p>Lorem, ipsum dolor sit emet consectur adispising elit quareat perferrend quis incident</p>
+                </div>
+                <div class="icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.twitter.com/oleweps"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/daniel-wabwile-1a0731212/"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="box">
+                <h1>contact info</h1>
+                <div class="icon">
+                    <a href="#"><i class="fas fa-map-marker-alt"></i>p.o box 50205-33,Bungoma-Webuye, lugulu vill</a>
+                    <a href="#"><i class="fas fa-phone-alt"></i>+254742008666</a>
+                    <a href="#"><i class="fas fa-envelope"></i>wepswork98@gmail.com</a>
+                </div>
+            </div>
+            <div class="box">
+                <h1>quick links</h1>
+                <div class="icon">
+                    <a href="{{ url_for('main.index') }}#home">home</a>
+                    <a href="{{ url_for('main.about') }}#feature">about</a>
+                    <a href="{{ url_for('main.services') }}#schedule">services</a>
+                    <a href="{{ url_for('main.news') }}#blog">news</a>
+                    <a href="{{ url_for('main.index') }}#footer">contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="credit">created by <span>Daniel Wabwile & Collins Mahigi</span> | all rights reserved.</div>
+    </section>
+    <!--footer section ends-->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://unpkg.com/chart.js"></script>
+
+</body>
+</html>

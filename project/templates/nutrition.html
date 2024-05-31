@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Nutrition - Fitnezz{% endblock %}
+
+{% block content %}
+<div class="nutrition-container">
+    <h1 class="nutrition-title">Nutrition Tracking</h1>
+    <form class="nutrition-form" method="POST" action="{{ url_for('api.track_nutrition') }}">
+        <div class="form-group">
+            <label for="date" class="form-label">Date:</label>
+            <input type="date" id="date" name="date" class="form-input" required>
+        </div>
+        <div class="form-group">
+            <label for="calories" class="form-label">Calories:</label>
+            <input type="number" id="calories" name="calories" class="form-input" required>
+        </div>
+        <div class="form-group">
+            <label for="protein" class="form-label">Protein (g):</label>
+            <input type="number" step="0.01" id="protein" name="protein" class="form-input" required>
+        </div>
+        <div class="form-group">
+            <label for="carbs" class="form-label">Carbs (g):</label>
+            <input type="number" step="0.01" id="carbs" name="carbs" class="form-input" required>
+        </div>
+        <div class="form-group">
+            <label for="fats" class="form-label">Fats (g):</label>
+            <input type="number" step="0.01" id="fats" name="fats" class="form-input" required>
+        </div>
+        <button type="submit" class="form-button">Add Nutrition Record</button>
+    </form>
+
+    <h2 class="nutrition-subtitle">Existing Nutrition Records</h2>
+    <ul class="nutrition-list">
+        {% for nutrition in nutrition_records %}
+            <li class="nutrition-item">
+                {{ nutrition.date }} - Calories: {{ nutrition.calories }}, Protein: {{ nutrition.protein }}g, Carbs: {{ nutrition.carbs }}g, Fats: {{ nutrition.fats }}g
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}

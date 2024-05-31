@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="title">Dashboard</h1>
+    
+    <div class="field">
+        <label class="label">Select Feature:</label>
+        <div class="control">
+            <div class="select">
+                <select id="featureSelect">
+                    <option value="goals">Goals</option>
+                    <option value="workouts">Workouts</option>
+                    <option value="progress">Progress</option>
+                    <option value="nutrition">Nutrition</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div id="chartContainer">
+        <!-- Chart will be loaded here -->
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const featureSelect = document.getElementById('featureSelect');
+        const chartContainer = document.getElementById('chartContainer');
+
+        featureSelect.addEventListener('change', function() {
+            const selectedFeature = featureSelect.value;
+            fetch('/dashboard/fetch_data', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `feature=${selectedFeature}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Clear previous chart
+                chartContainer.innerHTML = '';
+
+                // Generate new chart based on selected feature
+                if (selectedFeature === 'goals') {
+                    // Display goals in a list
+                    const goalsList = document.createElement('ul');
+                    data.forEach(goal => {
+                        const goalItem = document.createElement('li');
+                        goalItem.textContent = `${goal.description} - Target Date: ${goal.target_date}`;
+                        goalsList.appendChild(goalItem);
+                    });
+                    chartContainer.appendChild(goalsList);
+                } else {
+                    // Generate chart based on the selected feature's data
+                    const ctx = document.createElement('canvas');
+                    chartContainer.appendChild(ctx);
+
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: data.map(item => item.date),
+                            datasets: [{
+                                label: selectedFeature.charAt(0).toUpperCase() + selectedFeature.slice(1), // Capitalize first letter
+                                data: data.map(item => item[selectedFeature === 'progress' ? 'weight' : selectedFeature]),
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 1,
+                                fill: false
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                x: { type: 'time', time: { unit: 'day' } },
+                                y: { beginAtZero: true }
+                            }
+                        }
+                    });
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Fitnezz{% endblock %}
+
+{% block content %}
+<div class="welcome-container">
+    <div class="welcome-box">
+        <h1 class="welcome-title">Welcome, {{ name }}!</h1>
+    </div>
+</div>
+
+<div class="dashboard-container">
+    <h1 class="dashboard-title">Dashboard</h1>
+    
+    <div class="field">
+        <label class="label">Select Feature:</label>
+        <div class="control">
+            <div class="select">
+                <select id="featureSelect" onchange="handleFeatureChange()">
+                    <option value="goals">Goals</option>
+                    <option value="workouts">Workouts</option>
+                    <option value="progress">Progress</option>
+                    <option value="nutrition">Nutrition</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="goals-container" onclick="redirectToGoals()" data-url="{{ url_for('feature.manage_goals') }}">
+        <h2 class="goals-title">Goal Setting</h2>
+        <p class="goals-description">Set and track your fitness goals to stay motivated and achieve your desired fitness level. Click here to manage your goals.</p>
+    </div>
+    
+    <div class="progress-container" onclick="redirectToProgress()" data-url="{{ url_for('feature.manage_progress') }}">
+        <h2 class="progress-title">Progress Tracking</h2>
+        <p class="progress-description">Monitor your fitness progress over time to stay on track and reach your goals. Click here to manage your progress.</p>
+    </div>
+
+    <div class="social-container" onclick="redirectToSocial()" data-url="{{ url_for('feature.manage_social') }}">
+        <h2 class="social-title">Social Connections</h2>
+        <p class="social-description">Manage your social connections within the fitness community. Click here to manage your social connections.</p>
+    </div>
+
+    <div class="workouts-container" onclick="redirectToWorkouts()" data-url="{{ url_for('feature.manage_workouts') }}">
+        <h2 class="workouts-title">Workouts</h2>
+        <p class="workouts-description">Log and track your workouts to maintain a consistent fitness routine. Click here to manage your workouts.</p>
+    </div>
+
+    <canvas id="chartContainer">
+        <!-- Chart will be loaded here -->
+    </canvas>
+</div>
+
+
+{% endblock %}
