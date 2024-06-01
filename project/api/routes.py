@@ -50,7 +50,7 @@ def track_nutrition():
 
             return render_template('nutrition_api.html', nutrition_data=nutrition_data)
         else:
-            # User is not logged in, redirect to the login page
+            # redirect to login if user is not logged in
             return redirect(url_for('main.login'))
 
     return render_template('nutrition.html')
