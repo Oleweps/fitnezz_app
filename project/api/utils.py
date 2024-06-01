@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, render_template
 import requests
 
-# Define your API keys
+# Define the API keys endpoints
 NUTRITIONIX_APP_ID = "85a22cab"
 NUTRITIONIX_APP_KEY = "d5690657cf1755bba310a4b33c11f7ce"
 
