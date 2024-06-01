@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Goals - Fitnezz{% endblock %}
+
+{% block content %}
+<div class="goal-container">
+    <h1 class="goal-title">Your Goals</h1>
+    <form class="goal-form" method="POST" action="{{ url_for('feature.manage_goals') }}">
+        <div class="form-group">
+            <label for="description" class="form-label">Description:</label>
+            <input type="text" id="description" name="description" class="form-input" required>
+        </div>
+        <div class="form-group">
+            <label for="target_date" class="form-label">Target Date:</label>
+            <input type="date" id="target_date" name="target_date" class="form-input" required>
+        </div>
+        <button type="submit" class="form-button">Add Goal</button>
+    </form>
+
+    <h2 class="goal-subtitle">Existing Goals</h2>
+    <ul class="goal-list">
+        {% for goal in goals %}
+            <li class="goal-item">{{ goal.description }} - {{ goal.target_date }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}

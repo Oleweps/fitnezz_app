@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- blog section starts -->
+<section class="blogs" id="blog">
+  <h1 class="heading">Our <span>blogs</span></h1>
+
+  <div class="swiper blogs-slider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide box">
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/author.jpg') }}" alt="Barre Burn & Tone">
+        </div>
+        <div class="content">
+          <h3>Barre Burn & Tone</h3>
+          <span><i class="fad fa-calendar-alt"></i> April 22, 2023</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maiores fugit ipsum.</p>
+        </div>
+        <div class="button">
+          <a href="#" class="btn">Read more</a>
+        </div>
+      </div>
+
+      <div class="swiper-slide box">
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/featured/featured-1.jpg') }}" alt="Mindful Meditation Retreat">
+        </div>
+        <div class="content">
+          <h3>Mindful Meditation Retreat</h3>
+          <span><i class="fad fa-calendar-alt"></i> April 22, 2023</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maiores fugit ipsum.</p>
+        </div>
+        <div class="button">
+          <a href="#" class="btn">Read more</a>
+        </div>
+      </div>
+
+      <div class="swiper-slide box">
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/tags/food-tag.jpg') }}" alt="CrossFit Intensity">
+        </div>
+        <div class="content">
+          <h3>CrossFit Intensity</h3>
+          <span><i class="fad fa-calendar-alt"></i> April 22, 2023</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maiores fugit ipsum.</p>
+        </div>
+        <div class="button">
+          <a href="#" class="btn">Read more</a>
+        </div>
+      </div>
+
+      <div class="swiper-slide box">
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/tags/technology-tag.jpg') }}" alt="Dance Fit Groove">
+        </div>
+        <div class="content">
+          <h3>Dance Fit Groove</h3>
+          <span><i class="fad fa-calendar-alt"></i> April 22, 2023</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maiores fugit ipsum.</p>
+        </div>
+        <div class="button">
+          <a href="#" class="btn">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- blog section ends -->
+{% endblock %}

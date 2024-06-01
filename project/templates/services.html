@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- schedule section starts -->
+<section class="schedule" id="schedule">
+  <h1 class="heading"><span>Our</span> schedule</h1>
+  <div class="box-container">
+    <div class="box">
+      <div class="content">
+        <h3>Core Crusher Challenge</h3>
+        <p>lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+      </div>
+      <div class="icons">
+        <span><i class="far fa-clock"></i>5:30PM</span>
+        <span><i class="fad fa-calendar-alt"></i>April 22, 2021</span>
+      </div>
+      <a href="#" class="btn">Join from kes50.00</a>
+    </div>
+
+    <div class="box">
+      <img src="{{ url_for('static', filename='images/featured/p1.jpg') }}" alt="Core Crusher Challenge">
+    </div>
+
+    <div class="box">
+      <div class="content">
+        <h3>Bootcamp Blitz</h3>
+        <p>lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+      </div>
+      <div class="icons">
+        <span><i class="far fa-clock"></i>5:30PM</span>
+        <span><i class="fad fa-calendar-alt"></i>April 22, 2023</span>
+      </div>
+      <a href="#" class="btn">Join from kes50.00</a>
+    </div>
+
+    <div class="box">
+      <img src="{{ url_for('static', filename='images/trending/trending_4.jpg') }}" alt="Bootcamp Blitz">
+    </div>
+
+    <div class="box">
+      <img src="{{ url_for('static', filename='images/trending/trending_5.jpg') }}" alt="Bootcamp Blitz">
+    </div>
+
+    <div class="box">
+      <div class="content">
+        <h3>Spin & Sculpt Fusion</h3>
+        <p>lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+      </div>
+      <div class="icons">
+        <span><i class="far fa-clock"></i>5:30PM</span>
+        <span><i class="fad fa-calendar-alt"></i>April 22, 2021</span>
+      </div>
+      <a href="#" class="btn">Join from kes50.00</a>
+    </div>
+
+    <div class="box">
+      <img src="{{ url_for('static', filename='images/trending/trending_2.jpg') }}" alt="Spin & Sculpt Fusion">
+    </div>
+
+    <div class="box">
+      <div class="content">
+        <h3>Pilates Fusion Flow</h3>
+        <p>lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+      </div>
+      <div class="icons">
+        <span><i class="far fa-clock"></i>5:30PM</span>
+        <span><i class="fad fa-calendar-alt"></i>April 22, 2021</span>
+      </div>
+      <a href="#" class="btn">Join from kes50.00</a>
+    </div>
+  </div>
+</section>
+<!-- schedule section ends -->
+{% endblock %}
