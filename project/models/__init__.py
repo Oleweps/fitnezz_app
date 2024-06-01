@@ -5,3 +5,5 @@ from project.models.workout import Workout
 from project.models.progress import Progress
 from project.models.nutrition import Nutrition
 from project.models.social import Social
+
+#models imported
