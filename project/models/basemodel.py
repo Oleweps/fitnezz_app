@@ -1,4 +1,5 @@
 from project.extensions import db
+#basemodel class
 
 class BaseModel(db.Model):
     __abstract__ = True
