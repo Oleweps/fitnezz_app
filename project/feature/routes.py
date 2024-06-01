@@ -83,7 +83,7 @@ def manage_social():
             flash('Friend ID is required!', 'danger')
             return redirect(url_for('feature.manage_social'))
 
-        # Check if the friend request already exists
+        # Check if friend request already exists
         existing_request = Social.query.filter_by(user_id=current_user.id, friend_id=friend_id).first()
         if existing_request:
             flash('Friend request already sent!', 'warning')
