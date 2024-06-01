@@ -31,7 +31,6 @@ def signup():
 @bp.route('/signup', methods=['POST'])
 def signup_post():
     # code to validate and add user to database goes here
-    # code to validate and add user to database goes here
     email = request.form.get('email')
     name = request.form.get('name')
     password = request.form.get('password')
